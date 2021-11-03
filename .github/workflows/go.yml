@@ -20,7 +20,7 @@ jobs:
       run: go mod download
 
     - name: Generate
-      run: go generate github.com/bobesa/go-domain-util/domainutil
+      run: go generate github.com/kevinroleke/go-domain-util/domainutil
       
     - name: Test
       run: go test -v ./domainutil
