@@ -1,8 +1,5 @@
-module github.com/kevinroleke/go-domain-util
+module go-domain-util
 
-go 1.13
+go 1.16
 
-require (
-	golang.org/x/net v0.0.0-20180811021610-c39426892332
-	golang.org/x/text v0.3.0
-)
+require golang.org/x/net v0.0.0-20211101193420-4a448f8816b3
