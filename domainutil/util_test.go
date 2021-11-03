@@ -6,6 +6,13 @@ import (
 	"testing"
 )
 
+func ExampleHasDomain() {
+	fmt.Println(HasDomain("google.com"))
+	fmt.Println(HasDomain("1.1.1.1"))
+	// Output: true
+	// false
+}
+
 func ExampleHasSubdomain() {
 	fmt.Println(HasSubdomain("google.com"))
 	fmt.Println(HasSubdomain("keep.google.com"))
@@ -57,10 +64,37 @@ func TestHasSubdomain(t *testing.T) {
 	}
 }
 
+// TestHasDomain tests HasDomain() function
+func TestHasDomain(t *testing.T) {
+	//Test cases
+	cases := map[string]bool{
+		"google.com":        true,
+		"a.yah.org":	     true,
+		"****":      		 false,
+		"12.12.12.12":       false,
+		"google.olive1": 	 false,
+	}
+
+	//Test each domain, some should fail (expected)
+	for url, shouldHaveDomain := range cases {
+		hasDomain := HasDomain(url)
+		if hasDomain != shouldHaveDomain {
+			t.Errorf("Url (%q) returned %v for HasDomain(), but %v was expected", url, hasDomain, shouldHaveDomain)
+		}
+	}
+}
+
 // BenchmarkHasSubdomain benchmarks HasSubdomain() function
 func BenchmarkHasSubdomain(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		HasSubdomain("https://beta.gama.google.co.uk?test=true")
+	}
+}
+
+// BenchmarkHasDomain benchmarks HasDomain() function
+func BenchmarkHasDomain(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HasDomain("https://beta.gama.google.co.uk?test=true")
 	}
 }
 

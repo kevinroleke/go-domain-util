@@ -12,6 +12,10 @@ func HasSubdomain(domain string) bool {
 	return domain != top && top != ""
 }
 
+func HasDomain(domain string) bool {
+	return Domain(domain) != ""
+}
+
 // Subdomain returns subdomain from provided url.
 // If subdomain is not found in provided url, this function returns empty string.
 func Subdomain(url string) string {
