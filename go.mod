@@ -1,4 +1,4 @@
-module go-domain-util
+module github.com/kevinroleke/go-domain-util
 
 go 1.16
 
