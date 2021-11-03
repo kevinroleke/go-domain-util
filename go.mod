@@ -1,6 +1,5 @@
-module github.com/kevinroleke/go-domain-util
+module github.com/bobesa/go-domain-util
 
 go 1.16
 
 require golang.org/x/net v0.0.0-20211101193420-4a448f8816b3
-replace github.com/bobesa/go-domain-util => github.com/bobesa/go-domain-util master
